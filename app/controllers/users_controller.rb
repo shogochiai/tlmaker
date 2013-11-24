@@ -3,23 +3,28 @@ class UsersController < ApplicationController
     @user = User.new  
   end  
 
-  def edit
-    @user = User.find current_user.id
-  end
-
-    
   def create  
     @user = User.new(params[:user])  
     if @user.save  
-      redirect_to root_url, :notice => "Signed up!"  
+      redirect_to timelines_user_url(current_user), :notice => "Signed up!"  
     else  
       render :new  
     end  
   end  
 
-  private
+  def edit
+    @user = User.find current_user.id
+  end
 
-  def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+  def update
+    if current_user.update_attributes params[:user]
+      redirect_to root_url, notice: 'ユーザー情報を更新しました'
+    else
+      render :edit
+    end
+  end
+
+  def timelines
+    @timelines = Timeline.where(user_id: params[:id])
   end
 end

@@ -1,4 +1,5 @@
-<h1>Listing Something</h1>
+<h1>timelines</h1>
+
 
 <table>
   <tr>
@@ -9,12 +10,8 @@
   <tr>
     <td><%= timeline.name %></td>
     <td><%= link_to 'Show', timeline %></td>
-    <td><%= link_to 'Edit', edit_timeline_path(timeline) %></td>
+    <td><%= link_to 'Edit', edit_user_timeline_path(timeline) %></td>
     <td><%= link_to 'Destroy', timeline, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Something', new_timeline_path %>

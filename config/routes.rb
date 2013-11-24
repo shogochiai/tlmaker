@@ -1,14 +1,21 @@
 Tlmaker::Application.routes.draw do
+  get "home/index"
 
-  root to: 'timelines#index'
+  root to: 'home#index'
+
   resources :user_sessions
 
-  resources :users, only: [:new, :edit, :create, :destroy] do
+  namespace :user do
+    resources :timelines, except: [:index, :show]
+  end
+
+  resources :users, only: [:new, :create, :edit, :update, :destroy] do
     get :timelines, on: :member
+    resources :timelines, only: :index
   end
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
-  resources :timelines
+  resources :timelines, only: :show
 end

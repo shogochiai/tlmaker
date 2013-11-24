@@ -4,6 +4,7 @@ class CreateTimelines < ActiveRecord::Migration
       t.string :name
       t.string :url
       t.string :top_image
+      t.references :user
 
       t.timestamps
     end

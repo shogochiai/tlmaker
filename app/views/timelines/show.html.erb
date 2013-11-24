@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @timeline.name.presence %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @timeline.url.presence %>
+</p>
+
+<p>
+  <b>Top-image:</b>
+  <%= @timeline.top_image.presence %>
+</p>
+
+
+<%= link_to 'Edit', edit_timeline_path(@timeline) %> |
+<%= link_to 'Back', timelines_path %>

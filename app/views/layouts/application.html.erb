@@ -1,22 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tutorial</title>
+    <title>tlmaker</title>
       <%= stylesheet_link_tag    "application" %>
       <%= javascript_include_tag "application" %>
       <%= csrf_meta_tags %>
   </head>
   <body>
-
-  <div id="nav">
-    <% if current_user %>
-      <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
-      <%= link_to "Logout", :logout, method: :post %>
-    <% else %>
-      <%= link_to "Register", new_user_path %> |
-      <%= link_to "Login", :login %>
-    <% end %>
-  </div>
+    <div class='navbar'>
+      <div class='navbar-inner'>
+        <div class='container'>
+          <a class='btn btn-navbar' data-target='.nav-collapse' data-toggle='collapse'>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+          </a>
+          <%= link_to 'tlmaker', root_path, class: 'brand' %>
+          <div class='container nav-collapse'>
+            <ul class='nav'>
+              <li><%= link_to "Edit Profile", edit_user_path(current_user.id) if current_user %></li>
+              <li><%= link_to "Logout", :logout, method: :post if current_user %></li>
+              <li><%= link_to "Register", new_user_path unless current_user %></li>
+              <li><%= link_to "Login", :login unless current_user %></li>
+              <li><%= link_to '記事作成', new_user_timeline_path if current_user %></li>
+              <li><%= link_to 'カテゴリ編集', user_categories_path(current_user) if current_user %></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
   <div>
     <p id="notice"><%= flash[:notice] %></p>
     <p id="alert"><%= flash[:alert] %></p>

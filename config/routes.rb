@@ -1,6 +1,4 @@
 Tlmaker::Application.routes.draw do
-  get "home/index"
-
   root to: 'home#index'
 
   resources :user_sessions
@@ -12,6 +10,7 @@ Tlmaker::Application.routes.draw do
   resources :users, only: [:new, :create, :edit, :update, :destroy] do
     get :timelines, on: :member
     resources :timelines, only: :index
+    resources :categories, except: :show, controller: 'user/categories'
   end
 
   get 'login' => 'user_sessions#new', :as => :login

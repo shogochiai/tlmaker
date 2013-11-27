@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation
 
   has_many :timelines
+  has_many :categories
 
   validates_presence_of :email
   validates_uniqueness_of :email

@@ -1,0 +1,13 @@
+<%= simple_form_for [:user, @category] do |category| %>
+
+  <%= category.error_notification %>
+
+  <p>カテゴリ名を入れてください</p>
+  <%= category.input :name %>
+
+  <div class="form-actions">
+    <%= category.button :submit, class: 'btn-primary' %>
+    <%= link_to t('.cancel', default: t("helpers.links.cancel")),
+                user_categories_path(current_user), class: 'btn' %>
+  </div>
+<% end %>

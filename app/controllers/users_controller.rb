@@ -1,16 +1,18 @@
+# -*- coding: utf-8 -*-
 class UsersController < ApplicationController
-  def new  
-    @user = User.new  
-  end  
+  def new
+    @user = User.new
+  end
 
-  def create  
-    @user = User.new(params[:user])  
-    if @user.save  
-      redirect_to timelines_user_url(current_user), :notice => "Signed up!"  
-    else  
-      render :new  
-    end  
-  end  
+  def create
+    @user = User.new(params[:user])
+    if @user.save
+      login(params[:user][:email], params[:user][:password])
+      redirect_to root_url, :notice => "Signed up!"
+    else
+      render :new
+    end
+  end
 
   def edit
     @user = User.find current_user.id
@@ -22,9 +24,5 @@ class UsersController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def timelines
-    @timelines = Timeline.where(user_id: params[:id])
   end
 end

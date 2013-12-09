@@ -7,14 +7,14 @@ class UserSessionsController < ApplicationController
 
   def create
     if @user = login(params[:email], params[:password])
-      redirect_to timelines_user_url(current_user), :notice => "login!"
+      redirect_to user_timelines_url(current_user), :notice => "login!"
     else
       flash.now[:alert] = "Login failed"
       render action: "new"
     end
   end
 
-  def destroy
+  def session_logout
     logout
     redirect_to root_url, :notice => "logout!"
   end

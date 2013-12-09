@@ -1,0 +1,16 @@
+<h1>timelines</h1>
+
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% @timelines.each do |timeline| %>
+  <tr>
+    <td><%= link_to timeline.name, timeline %></td>
+    <td><%= link_to 'Edit', edit_user_timeline_path(current_user, timeline) if current_user.id == timeline.user_id %></td>
+    <td><%= link_to 'Destroy', user_timeline_path(current_user, timeline), method: :delete_timeline, data: { confirm: 'Are you sure?' } if current_user.id == timeline.user_id %></td>
+  </tr>
+<% end %>
+</table>

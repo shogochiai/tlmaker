@@ -11,4 +11,8 @@ if Rails.env.development?
   100.times do |i|
     User.find(2).timelines.create name: "FugasTimeline#{i}"
   end
+
+  100.times do |i|
+    IgoDoc.create title: "doc#{i}", content: "テストは#{i}点です。"
+  end
 end

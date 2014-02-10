@@ -7,10 +7,12 @@ class CategoriesController < ApplicationController
   end
 
   def new
+    @user = User.find params[:user_id]
     @category = current_user.categories.build
   end
 
   def edit
+    @user = User.find params[:user_id]
     @category = current_user.categories.find params[:id]
   end
 

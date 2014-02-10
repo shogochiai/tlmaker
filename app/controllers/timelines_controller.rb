@@ -8,10 +8,12 @@ class TimelinesController < ApplicationController
   end
 
   def new
+    @user = User.find params[:user_id]
     @timeline = current_user.timelines.build
   end
 
   def edit
+    @user = User.find params[:user_id]
     @timeline = current_user.timelines.find(params[:id])
   end
 

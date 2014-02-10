@@ -1,0 +1,26 @@
+<h2>入力</h2>
+
+<p><%= @igo_doc.title %></p>
+<p><%= @igo_doc.content %></p>
+
+<h2>分かち書き</h2>
+  <p><%= @wakati %></p>
+<h2>形態素解析</h2>
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>形態素の表層形</th>
+        <th>形態素の素性</th>
+        <th>テキスト内での形態素の出現開始位置</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @igo.each do |i| %>
+        <tr>
+          <td><%= "#{i.surface}" %></td>
+          <td><%= "#{i.feature}" %></td>
+          <td><%= "#{i.start}" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

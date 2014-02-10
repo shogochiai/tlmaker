@@ -63,6 +63,8 @@ GEM
       sass (~> 3.1)
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
+    cool.io (1.1.1)
+      iobuffer (>= 1.0.0)
     daemon_controller (1.1.7)
     daemons (1.1.9)
     debug_inspector (0.0.2)
@@ -82,11 +84,15 @@ GEM
     http_parser.rb (0.5.3)
     httpauth (0.2.0)
     i18n (0.6.5)
+    igo-ruby (0.1.5)
+    iobuffer (1.1.2)
     journey (1.0.4)
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    jubatus (0.5.2)
+      msgpack-rpc (~> 0.5.2)
     jwt (0.1.8)
       multi_json (>= 1.5)
     kaminari (0.14.1)
@@ -107,6 +113,10 @@ GEM
     mime-types (1.25)
     mini_magick (3.6.0)
       subexec (~> 0.2.1)
+    msgpack (0.5.8)
+    msgpack-rpc (0.5.2)
+      cool.io (~> 1.1.1)
+      msgpack (~> 0.5.8)
     multi_json (1.8.2)
     multipart-post (1.2.0)
     mysql2 (0.3.14)
@@ -131,6 +141,8 @@ GEM
       yard (>= 0.8)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -225,7 +237,9 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   compass-rails
   flatstrap-rails
+  igo-ruby
   jquery-rails
+  jubatus
   kaminari
   less-rails
   mini_magick
@@ -234,6 +248,7 @@ DEPENDENCIES
   pry
   pry-doc
   pry-rails
+  quiet_assets
   rails (= 3.2.14)
   sass-rails (~> 3.2.3)
   simple_form

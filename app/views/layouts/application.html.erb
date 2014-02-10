@@ -22,8 +22,8 @@
               <li><%= link_to "Logout", :logout, method: :post if current_user %></li>
               <li><%= link_to "Register", new_user_path unless current_user %></li>
               <li><%= link_to "Login", :login unless current_user %></li>
-              <li><%= link_to '記事作成', new_user_timeline_path(current_user) if current_user %></li>
-              <li><%= link_to 'カテゴリ編集', user_categories_path(current_user) if current_user %></li>
+              <li><%= link_to "article", new_user_timeline_path(current_user) if current_user %></li>
+              <li><%= link_to "category", user_categories_path(current_user) if current_user %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

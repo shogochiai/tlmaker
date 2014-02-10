@@ -2,6 +2,9 @@ Tlmaker::Application.routes.draw do
   root to: 'home#index'
 
   resources :timelines, only: :show
+  resources :igo_docs
+  get 'compare' => 'home#compare', as: :compare
+  post 'compare' => 'home#compare'
   resources :users, only: [:new, :create, :edit, :update, :destroy] do
     resources :timelines, except: :show
     resources :categories, except: :show, controller: 'user/categories'

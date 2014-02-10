@@ -1,0 +1,9 @@
+<h2>解析したい文書を二つ選んでください</h2>
+
+<%= simple_form_for :igo_form, html: { class: 'form-horizontal' }, defaults: { wrapper_html: { class: 'control-group' }, label_html: { class: 'control-label' } } do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :docs, collection: IgoDoc.all, as: :check_boxes, label: '文書選択', item_wrapper_class: 'inline' %>
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn-large' %>
+  </div>
+<% end %>

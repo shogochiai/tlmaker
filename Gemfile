@@ -21,9 +21,9 @@ group :development do
   gem 'pry'
   gem 'pry-doc'
   gem 'pry-rails'
+  gem 'spring'
   gem 'better_errors' # エラー画面をわかりやすく整形してくれる
   gem 'binding_of_caller' # better_errorsの画面上にirb/pry(PERL)を表示する
-  gem 'spring'
   gem 'quiet_assets'
 end
 

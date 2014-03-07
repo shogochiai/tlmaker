@@ -4,14 +4,18 @@ class HomeController < ApplicationController
   end
 
   def compare
-    doc1 = IgoDoc.find params[:igo_form][:docs][0]
-    doc2 = IgoDoc.find params[:igo_form][:docs][1]
-    igo(doc1.content)
-    vec1 = @igo
-    igo(doc2.content)
-    vec2 = @igo
-    pp vec1
-    pp vec2
+    if params[:igo_form]
+      params[:igo_form][:docs].delete("")
+      params[:igo_form][:docs].each.with_index(1) do |_params, i|
+        doc = IgoDoc.find _params
+        igo(doc.content)
+        if i == 1
+          vec1 = @wakachi
+        else
+          vec2 = @wakachi
+        end
+      end
+    end
   end
 
   private
@@ -19,6 +23,3 @@ class HomeController < ApplicationController
   def cos_sim x, y
   end
 end
-
-
-
